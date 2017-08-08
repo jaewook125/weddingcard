@@ -1,0 +1,4 @@
+﻿django
+django-imagekit
+pilkit
+pillow
