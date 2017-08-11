@@ -1,0 +1,218 @@
+{% extends 'maincomment/base.html' %}
+{% load imagekit %}
+
+{% block content %}
+<h1>테스트 댓글 화면</h1>
+
+<div class="wrap">
+
+  <!-- 소개 시작 -->
+  <div class="about_area">
+    <img src="{{ maincomment.image1.url }}" alt="">
+  </div><!-- //소개 끝 -->
+
+
+{% if maincomment.image %}
+    <!-- 소개2 시작 -->
+  <div class="reabout_area">
+    <img src="{{ maincomment.image2.url }}" alt="">
+  </div><!-- //소개2 끝 -->
+{% else %}
+
+{% endif %}
+
+
+{% if maincomment.image %}
+  <!-- 전화 버튼 영역 시작 -->
+  <div class="btn_tel_area">
+      <a href="javascript:location.href='tel:070-8806-1133'"><img src="{{ maincomment.image3.url }}" alt=""></a>
+  </div><!-- //전화 버튼 영역 끝 -->
+{% else %}
+
+{% endif %}
+
+
+{% if maincomment.image %}
+  <!-- 전화 버튼 영역2 시작 -->
+  <div class="btn_tel_re_area">
+      <a href="javascript:location.href='tel:070-8806-1133'"><img src="{{ maincomment.image4.url }}" alt=""></a>
+  </div><!-- //전화 버튼 영역2 끝 -->
+{% else %}
+
+{% endif %}
+
+
+{% if maincomment.image %}
+    <!-- 갤러리 영역 시작 -->
+  <div class="gallery_area">
+    <img src="{{ maincomment.image5.url }}" alt="">
+  </div><!-- //갤러리 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+
+
+{% if maincomment.image %}
+  <!-- 확대보기 영역 시작 -->
+  <div class="zoom_area">
+    <a href="gallery1.html"><img src="{{ maincomment.image6.url }}" alt="확대보기"></a>
+  </div><!-- //확대보기 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+
+{% if maincomment.image %}
+  <!-- 주소 영역 시작 -->
+  <div class="location_area">
+    <img src="{{ maincomment.image7.url }}" alt="">
+  </div><!-- //주소 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+
+
+{% if maincomment.image %}
+<!-- 지도 영역 시작 -->
+  <div class="map_area">
+    <a href="https://m.map.naver.com/siteview.nhn?query=%EB%B6%80%EC%82%B0%20w%EC%9B%A8%EB%94%A9&amp;sm=hty&amp;code=11881122#/map"><img src="{{ maincomment.image8.url }}" alt=""></a>
+  </div><!-- //갤러리 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+
+{% if maincomment.image %}
+<!-- 오시는 길 영역 시작 -->
+  <div class="direction_area">
+  <img src="{{ maincomment.image9.url }}" alt="">
+  </div><!-- //오시는 길 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+
+
+
+
+{% if maincomment.image %}
+    <!-- 전화 버튼 영역 시작 -->
+  <div class="sns_area">
+    <div class="left_box">
+      <a id="kakao-link-btn" href="javascript:KakaoDirect();">
+                    <img src="{{ maincomment.image10.url }}"> </a>
+    </div>
+    {% else %}
+
+    {% endif %}
+
+{% if maincomment.image %}
+    <div class="right_box">
+    <a href="javascript:shareStory()">
+    <img src="{{ maincomment.image11.url }}">
+  </a>
+    </div>
+    {% else %}
+
+    {% endif %}
+
+{% if maincomment.image %}
+    <div class="left_box">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=saebomm.com/sample50"><img src="{{ maincomment.image12.url }}" alt=""></a>
+    </div>
+    {% else %}
+
+    {% endif %}
+    
+
+{% if maincomment.image %}
+    <div class="right_box">
+      <a href="gallery2.html"><img src="{{ maincomment.image13.url }}" alt=""></a>
+    </div>
+  </div><!-- //전화 버튼 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+
+{% if maincomment.image %}
+<!-- 새봄로고 영역 시작 -->
+  <div class="saebomm_area">
+    <a href="http://www.saebomm.co.kr"><img src="{{ maincomment.image14.url }}" alt=""></a>
+  </div><!-- //새봄로고 영역 끝 -->
+  {% else %}
+
+  {% endif %}
+  <div class="row"  style="
+          margin-left: 10px;
+          margin-right: 10px;">
+        <h3>댓글 작성</h3>
+          <form action="" class="form-horizontal" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              {{ form.as_table }}
+              <button class="btn btn-large btn-block btn-primary" type="submit">작성</button>
+            </div>
+
+          </form>
+
+    </div>
+
+  <h3>댓글목록</h3>
+        {% for comments in maincomment.comment_set.all %}
+        <div style="background-color: #DCDCDC;">
+                <table style="margin-bottom: 5px;" class="table table-striped">
+                  <tbody>
+                    <ul style="padding-left: 0px;">
+                      <li style="overflow: hidden;">
+                        <small>{{comments.user}}</small>
+                      </li>
+                      <strong><h4>{{comments.content}}</h4></strong>
+
+                  </ul>
+                    <tbody>
+                </table>
+          </div>
+          {% endfor %}
+
+
+<script type="text/javascript">
+var UserAgent = navigator.userAgent;
+var isMobile = UserAgent.match(/iPhone|iPod|Android|iPad/i);
+
+
+
+// 카카오톡 //
+
+// 사용할 앱의 Javascript 키를 설정해 주세요.
+  Kakao.init('6cdb86578d9a9f6076dcd4a66fe0718e');
+
+  // 카카오톡 링크 버튼을 생성합니다. 처음 한번만 호출하면 됩니다.
+  Kakao.Link.createTalkLinkButton({
+    container: '#kakao-link-btn',
+    label: '김정태♥공수민의 모바일청첩장입니다. 새로이 함께 서는 저희 두 사람의 모습을 부디 오셔서 지켜봐 주시면 감사하겠습니다.',
+    image: {
+      src: 'http://www.saebomm.com/sample50/img/m2-k2.jpg',
+      width: '300',
+      height: '200'
+    },
+    webButton: {
+      text: '청첩장 보러가기',
+      url: 'http://www.saebomm.com/sample50' // 앱 설정의 웹 플랫폼에 등록한 도메인의 URL이어야 합니다.
+    }
+  });
+
+// 카카오 스토리 //
+
+
+// 사용할 앱의 Javascript 키를 설정해 주세요.
+  Kakao.init('6cdb86578d9a9f6076dcd4a66fe0718e');
+
+
+// 스토리 공유 버튼을 생성합니다.
+ function shareStory() {
+      Kakao.Story.share({
+        url: 'http://www.saebomm.com/sample50',
+        text: '김정태♥공수민의 모바일청첩장입니다. 새로이 함께 서는 저희 두 사람의 모습을 부디 오셔서 지켜봐 주시면 감사하겠습니다.'
+      });
+    }
+
+</script>
+</div>
+{% endblock %}

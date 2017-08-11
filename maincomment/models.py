@@ -7,10 +7,10 @@ import uuid
 import os
 
 def get_image_path(instance, filename):
-    return os.path.join('mains', "imagemain_%s" % str(instance), filename)
+    return os.path.join('mains', "imagecomment_%s" % str(instance), filename)
 # 이미지 저장경로 mains/imagemain_(name)/filename
 
-class Main(models.Model):
+class MainComment(models.Model):
     name = models.CharField(max_length=10)
     image1 = ProcessedImageField(blank=True,
             processors=[Thumbnail(1920, 1080)],
@@ -85,3 +85,12 @@ class Main(models.Model):
 
     def __str__(self):
         return self.name
+
+class Comment(models.Model):
+    main = models.ForeignKey(MainComment)
+    user = models.CharField(max_length=20)
+    password = models.CharField(max_length=50)
+    content = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.user

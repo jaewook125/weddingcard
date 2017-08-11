@@ -20,9 +20,10 @@ from django.conf import settings
 from django.shortcuts import redirect
 
 urlpatterns = [
-    url(r'^$', lambda r: redirect('mainpage:index'),name='root'),
+    # url(r'^$', lambda r: redirect('mainpage:index'),name='root'),
     url(r'^admin/', admin.site.urls),
     url(r'^main/', include('mainpage.urls',namespace='mainpage')),
+    url(r'^main2/', include('maincomment.urls',namespace='maincomment')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
