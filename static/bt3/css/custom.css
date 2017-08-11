@@ -1,3 +1,38 @@
-#good{
-  color: green;
-}
+<style>
+		html, body {margin:0;padding:0;}
+		img {display:block;border:0;}
+		.wrap {width:100%;margin:0 auto;text-align:center;}
+		.about_area {}
+		.about_area img {width:100%;height:auto;}
+		.gallery_area {}
+		.gallery_area img {width:100%;height:auto;}
+		.zoom_area {}
+		.zoom_area a {display:block;}
+		.zoom_area a img {width:100%;height:auto;}
+		.reabout_area {}
+		.reabout_area img {width:100%;height:auto;}
+		.btn_tel_area {}
+		.btn_tel_area img {width:100%;height:auto;}
+		.btn_tel_re_area {}
+		.btn_tel_re_area img {width:100%;height:auto;}
+		.message_area {}
+		.message_area p {margin:0;padding:0;}
+		.message_area p a {display:block;}
+		.message_area p a img {width:100%;height:auto;}
+		.location_area {}
+		.location_area img {width:100%;height:auto;}
+		.map_area {}
+		.map_area a {display:block;}
+		.map_area a img {width:100%;height:auto;}
+		.direction_area {}
+		.direction_area img {width:100%;height:auto;}
+		.sns_area {overflow:hidden;width:100%;zoom:1;}
+		.sns_area .left_box {float:left;width:25%;}
+        .sns_area .left_box {float:left;width:25%;}
+        .sns_area .right_box {float:left;width:25%;}
+        .sns_area .right_box {float:left;width:25%;}
+        .sns_area div a {display:block;}
+        .sns_area div a img {width:100%;height:auto;}
+		.saebomm_area {}
+		.saebomm_area img {width:100%;height:auto;}
+	</style>
